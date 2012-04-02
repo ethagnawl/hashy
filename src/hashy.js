@@ -3,7 +3,7 @@ window.hashy = function(key, value) {
   if (arguments.length === 0) {
     return window.location.hash;
   } else if (arguments.length === 1 && !_.isArray(arguments[0])) {
-    new_hash = !arguments[0] ? '' : arguments[0];
+    new_hash = arguments[0] === false ? '' : arguments[0];
     return window.location.hash = new_hash;
   } else {
     if (_.isArray(arguments[0])) {

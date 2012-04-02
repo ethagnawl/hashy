@@ -2,7 +2,7 @@ window.hashy = (key, value) ->
     if arguments.length is 0
         window.location.hash
     else if arguments.length is 1 and !_.isArray arguments[0]
-        new_hash = if !arguments[0] then '' else arguments[0]
+        new_hash = if arguments[0] is false then '' else arguments[0]
         window.location.hash = new_hash
     else
         if _.isArray arguments[0]

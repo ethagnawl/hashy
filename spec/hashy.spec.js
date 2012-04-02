@@ -18,6 +18,13 @@
       result = hashy();
       return expect(result).toEqual('#this_is_a_hash');
     });
+    it('destroys the hash', function() {
+      var result;
+      hashy('key', 'value');
+      hashy(false);
+      result = hashy();
+      return expect(result).toEqual('');
+    });
     it('sets an empty hash with one k,v pair', function() {
       var result;
       hashy('key', 'value');

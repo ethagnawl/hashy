@@ -12,6 +12,12 @@ describe 'hashy', ->
         result = hashy()
         expect(result).toEqual('#this_is_a_hash')
 
+    it 'destroys the hash', ->
+        hashy('key', 'value')
+        hashy(false)
+        result = hashy()
+        expect(result).toEqual('')
+
     it 'sets an empty hash with one k,v pair', ->
         hashy('key', 'value')
         result = hashy()
