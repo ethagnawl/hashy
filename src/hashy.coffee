@@ -1,6 +1,9 @@
 window.hashy = (key, value) ->
-    if _.isArray arguments[0]
-        _.each arguments, (pair) -> hashy pair[0], pair[1]
+    if arguments.length is 0
+        window.location.hash
+    else if arguments.length is 1 and !_.isArray arguments[0]
+        new_hash = if !arguments[0] then '' else arguments[0]
+        window.location.hash = new_hash
     else
         old_hash = window.location.hash and window.location.hash.split('#')[1]
         new_hash = key + '=' + value
@@ -29,4 +32,4 @@ window.hashy = (key, value) ->
                 # order_items_total not in existing_hash
                 new_hash = old_hash + '&' + new_hash
 
-        window.location.hash = new_hash
+            hashy new_hash
