@@ -58,11 +58,25 @@
       result = hashy();
       return expect(result).toEqual('#some=pair&key=upated_value&test=cool');
     });
-    return it('creates a new hash containing multiple k,v pairs', function() {
+    it('creates a new hash containing multiple k,v pairs', function() {
       var result;
       hashy(['some', 'pair'], ['key', 'value'], ['test', 'cool']);
       result = hashy();
       return expect(result).toEqual('#some=pair&key=value&test=cool');
+    });
+    it('updates a hash containing multiple k,v pairs', function() {
+      var result;
+      hashy(['some', 'pair'], ['key', 'value']);
+      hashy(['some', 'new_pair'], ['key', 'new_value']);
+      result = hashy();
+      return expect(result).toEqual('#some=new_pair&key=new_value');
+    });
+    return it('appends multiple k,v pairs', function() {
+      var result;
+      hashy('key', 'value');
+      hashy(['key_1', 'value_1'], ['key_2', 'value_2']);
+      console.log(result = hashy());
+      return expect(result).toEqual('#key=value&key_1=value_1&key_2=value_2');
     });
   });
 }).call(this);

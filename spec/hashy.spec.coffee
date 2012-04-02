@@ -50,3 +50,16 @@ describe 'hashy', ->
         hashy(['some', 'pair'], ['key', 'value'], ['test', 'cool'])
         result = hashy()
         expect(result).toEqual('#some=pair&key=value&test=cool')
+
+    it 'updates a hash containing multiple k,v pairs', ->
+        hashy(['some', 'pair'], ['key', 'value'])
+        hashy(['some', 'new_pair'], ['key', 'new_value'])
+        result = hashy()
+        expect(result).toEqual('#some=new_pair&key=new_value')
+
+    it 'appends multiple k,v pairs', ->
+        hashy('key', 'value')
+        hashy(['key_1', 'value_1'], ['key_2', 'value_2'])
+        console.log result = hashy()
+        expect(result).toEqual('#key=value&key_1=value_1&key_2=value_2')
+
