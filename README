@@ -1,0 +1,50 @@
+Hashy is a utility function which provides CRUD-like access to `window.location.hash`.
+
+## Dependencies
+* Underscore.js (specs are written against v1.3.1)
+
+## TODO
+* remove Underscore.js dependency
+* support CRUD interactions with hashes not based on k,v pairs
+
+## Get
+window.location.hash = 'key=value';
+hashy(); // '#key=value'
+
+## Set
+window.location.hash = 'key=value';
+hashy('new_key=new_value');
+hashy(); // '#new_key=new_value'
+
+## Destroy
+hashy('key=value');
+hashy(false);
+hashy(); // ''
+
+## Set k,v pair
+hashy('key', 'value');
+hashy(); // #key=value
+
+## Update k,v pair
+hashy('key', 'value');
+hashy('key', 'new_value');
+hashy(); // #key=new_value
+
+## Append k,v pair
+hashy('key', 'value');
+hashy('key_1', 'value_1');
+hashy(); // #key=value&key_1=value_1
+
+## Set multiple k,v pairs
+hashy(['key', 'value'], ['key_1', 'value_1']);
+hashy(); // #key=value&key_1=value_1
+
+## Update multiple k,v pairs
+hashy(['key', 'value'], ['key_1', 'value_1']);
+hashy(['key', 'new_value'], ['key_1', 'new_value_1']);
+hashy(); // #key=new_value&key_1=new_value_1
+
+## Append multiple k,v pairs
+hashy('key', 'value');
+hashy(['key_1', 'value_1'], ['key_2', 'value_2']);
+hashy(); // #key=value&key_1=value_1&key_2=value_2
