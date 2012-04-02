@@ -60,6 +60,6 @@ describe 'hashy', ->
     it 'appends multiple k,v pairs', ->
         hashy('key', 'value')
         hashy(['key_1', 'value_1'], ['key_2', 'value_2'])
-        console.log result = hashy()
+        result = hashy()
         expect(result).toEqual('#key=value&key_1=value_1&key_2=value_2')
 

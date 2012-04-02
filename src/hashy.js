@@ -1,5 +1,5 @@
 window.hashy = function(key, value) {
-  var key_hash_test, key_is_in_existing_hash, new_hash, new_hash_array, old_hash, old_hash_array, _hash;
+  var key_hash_test, key_is_in_existing_hash, new_hash, new_hash_array, old_hash, old_hash_array, pair, _hash, _i, _len, _results;
   if (arguments.length === 0) {
     return window.location.hash;
   } else if (arguments.length === 1 && !_.isArray(arguments[0])) {
@@ -7,9 +7,14 @@ window.hashy = function(key, value) {
     return window.location.hash = new_hash;
   } else {
     if (_.isArray(arguments[0])) {
-      return _.each(arguments, function(pair) {
-        return hashy(pair[0], pair[1]);
-      });
+      _results = [];
+      for (_i = 0, _len = arguments.length; _i < _len; _i++) {
+        pair = arguments[_i];
+        _results.push((function(pair) {
+          return hashy(pair[0], pair[1]);
+        })(pair));
+      }
+      return _results;
     } else {
       _hash = hashy();
       old_hash = _hash && _hash.split('#')[1];

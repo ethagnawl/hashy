@@ -6,7 +6,8 @@ window.hashy = (key, value) ->
         window.location.hash = new_hash
     else
         if _.isArray arguments[0]
-            _.each arguments, (pair) -> hashy pair[0], pair[1]
+            for pair in arguments
+                do (pair) -> hashy pair[0], pair[1]
         else
             _hash = hashy()
             old_hash = _hash and _hash.split('#')[1]
