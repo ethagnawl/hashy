@@ -29,9 +29,10 @@ hashy = (function() {
     return value.indexOf(key) !== -1;
   };
   return function(key, value) {
-    var key_is_in_existing_hash, new_hash, new_hash_array, old_hash, old_hash_array, pair, _hash, _i, _len, _results;
+    var hash, key_is_in_existing_hash, new_hash, new_hash_array, old_hash, old_hash_array, pair, _hash, _i, _len, _results;
     if (arguments.length === 0) {
-      return window.location.hash;
+      _hash = window.location.hash;
+      return hash = _hash === '' || /^#$/.test(_hash) ? '' : window.location.hash;
     } else if (arguments.length === 1 && !is_array(arguments[0])) {
       new_hash = arguments[0] === false ? '' : arguments[0];
       return window.location.hash = new_hash;

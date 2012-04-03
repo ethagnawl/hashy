@@ -21,7 +21,8 @@ hashy = do ->
 
     (key, value) ->
         if arguments.length is 0
-            window.location.hash
+            _hash = window.location.hash
+            hash = if (_hash is '' or /^#$/.test _hash) then '' else window.location.hash
         else if arguments.length is 1 and !is_array arguments[0]
             new_hash = if arguments[0] is false then '' else arguments[0]
             window.location.hash = new_hash
