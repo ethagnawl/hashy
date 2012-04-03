@@ -43,4 +43,4 @@ hashy(['key_1', 'value_1'], ['key_2', 'value_2']);
 hashy(); // #key=value&key_1=value_1&key_2=value_2
 
 ## TODO
-* support CRUD interactions with hashes not based on k,v pairs
+* add support for appending to non-k,v pair hashes
