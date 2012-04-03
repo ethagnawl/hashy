@@ -1,10 +1,6 @@
 Hashy is a utility function which provides a CRUD-like interface to `window.location.hash`.
 
-## Dependencies
-* Underscore.js (specs are written against v1.3.1)
-
 ## TODO
-* remove Underscore.js dependency
 * support CRUD interactions with hashes not based on k,v pairs
 
 ## Get
