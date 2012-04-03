@@ -1,8 +1,5 @@
 Hashy is a utility function which provides a CRUD-like interface to `window.location.hash`.
 
-## TODO
-* support CRUD interactions with hashes not based on k,v pairs
-
 ## Get
 window.location.hash = 'key=value';
 hashy(); // '#key=value'
@@ -44,3 +41,6 @@ hashy(); // #key=new_value&key_1=new_value_1
 hashy('key', 'value');
 hashy(['key_1', 'value_1'], ['key_2', 'value_2']);
 hashy(); // #key=value&key_1=value_1&key_2=value_2
+
+## TODO
+* support CRUD interactions with hashes not based on k,v pairs
