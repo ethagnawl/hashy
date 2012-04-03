@@ -8,7 +8,7 @@ window.hashy = (key, value) ->
         result is true
 
     is_array = (obj) ->
-        toString.call(obj) is '[object Array]';
+        toString.call(obj) is '[object Array]'
     map = (items, operation) ->
         array = []
         for item in items

@@ -1,5 +1,17 @@
 window.hashy = function(key, value) {
-  var is_array, key_hash_test, key_is_in_existing_hash, map, new_hash, new_hash_array, old_hash, old_hash_array, pair, _hash, _i, _len, _results;
+  var any, is_array, key_hash_test, key_is_in_existing_hash, map, new_hash, new_hash_array, old_hash, old_hash_array, pair, _hash, _i, _len, _results;
+  any = function(items, operation) {
+    var item, result, _i, _len;
+    result = false;
+    for (_i = 0, _len = items.length; _i < _len; _i++) {
+      item = items[_i];
+      if ((operation(item)) === true) {
+        result = true;
+        break;
+      }
+    }
+    return result === true;
+  };
   is_array = function(obj) {
     return toString.call(obj) === '[object Array]';
   };
@@ -37,8 +49,8 @@ window.hashy = function(key, value) {
       };
       if (old_hash) {
         if (old_hash_array.length > 1) {
-          key_is_in_existing_hash = _.any(old_hash_array, function(x) {
-            return key_hash_test(x);
+          key_is_in_existing_hash = any(old_hash_array, function(item) {
+            return key_hash_test(item);
           });
           if (key_is_in_existing_hash) {
             new_hash_array = map(old_hash_array, function(item) {
