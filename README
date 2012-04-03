@@ -1,7 +1,6 @@
 Hashy is a utility function which provides a CRUD-like interface to `window.location.hash`.
 
 ## TODO
-* fix cross-browser issues (Firefox, IE)
 * support CRUD interactions with hashes not based on k,v pairs
 
 ## Get
