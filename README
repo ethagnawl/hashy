@@ -1,4 +1,4 @@
-Hashy is a utility function which provides a CRUD-like interface to `window.location.hash`.
+Hashy is a utility function which allows for CRUD operations on `window.location.hash`.
 
 ## Get
 window.location.hash = 'key=value';
