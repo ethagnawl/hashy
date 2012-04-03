@@ -8,7 +8,7 @@ hashy = do ->
         result is true
 
     is_array = (obj) ->
-        toString.call(obj) is '[object Array]'
+        Object.prototype.toString.call(obj) is '[object Array]'
 
     map = (items, operation) ->
         array = []
@@ -16,7 +16,8 @@ hashy = do ->
             array.push operation item
         array
 
-    key_hash_test = (value, key) -> value.indexOf(key) isnt -1
+    key_hash_test = (value, key) ->
+        value.indexOf(key) isnt -1
 
     (key, value) ->
         if arguments.length is 0

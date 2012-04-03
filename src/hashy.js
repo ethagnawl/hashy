@@ -14,7 +14,7 @@ hashy = (function() {
     return result === true;
   };
   is_array = function(obj) {
-    return toString.call(obj) === '[object Array]';
+    return Object.prototype.toString.call(obj) === '[object Array]';
   };
   map = function(items, operation) {
     var array, item, _i, _len;
@@ -40,8 +40,6 @@ hashy = (function() {
         _results = [];
         for (_i = 0, _len = arguments.length; _i < _len; _i++) {
           pair = arguments[_i];
-          alert(pair[0]);
-          console.log(pair[1]);
           _results.push((function(pair) {
             return hashy(pair[0], pair[1]);
           })(pair));
