@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Hashy by ethagnawl</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/ethagnawl/hashy">Fork On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/ethagnawl/hashy/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/ethagnawl/hashy/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Hashy</h1>
+          <p>Get a handle on your #hash.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/ethagnawl">ethagnawl</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <p>Hashy is a utility function which allows for CRUD operations on `window.location.hash`.</p>
+
+<h2>Get</h2>
+
+<p><code>window.location.hash = 'key=value';</code>
+<br><code>hashy(); // '#key=value'</code></p>
+
+<h2>Set</h2>
+
+<p><code>window.location.hash = 'key=value';</code>
+<br><code>hashy('new_key=new_value');</code>
+<br><code>hashy(); // '#new_key=new_value'</code></p>
+
+<h2>Destroy</h2>
+
+<p><code>hashy('key=value');</code>
+<br><code>hashy(false);</code>
+<br><code>hashy(); // ''</code></p>
+
+<h2>Set k,v pair</h2>
+
+<p><code>hashy('key', 'value');</code>
+<br><code>hashy(); // #key=value</code></p>
+
+<h2>Update k,v pair</h2>
+
+<p><code>hashy('key', 'value');</code>
+<br><code>hashy('key', 'new_value');</code>
+<br><code>hashy(); // #key=new_value</code></p>
+
+<h2>Append k,v pair</h2>
+
+<p><code>hashy('key', 'value');</code>
+<br><code>hashy('key_1', 'value_1');</code>
+<br><code>hashy(); // #key=value&amp;key_1=value_1</code></p>
+
+<h2>Set multiple k,v pairs</h2>
+
+<p><code>hashy(['key', 'value'], ['key_1', 'value_1']);</code>
+<br><code>hashy(); // #key=value&amp;key_1=value_1</code></p>
+
+<h2>Update multiple k,v pairs</h2>
+
+<p><code>hashy(['key', 'value'], ['key_1', 'value_1']);</code>
+<br><code>hashy(['key', 'new_value'], ['key_1', 'new_value_1']);</code>
+<br><code>hashy(); // #key=new_value&amp;key_1=new_value_1</code></p>
+
+<h2>Append multiple k,v pairs</h2>
+
+<p><code>hashy('key', 'value');</code>
+<br><code>hashy(['key_1', 'value_1'], ['key_2', 'value_2']);</code>
+<br><code>hashy(); // #key=value&amp;key_1=value_1&amp;key_2=value_2</code></p>
+
+<h2>TODO</h2>
+
+<ul>
+<li>add support for appending to non-k,v pair hashes</li>
+</ul>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+  </body>
+</html>
