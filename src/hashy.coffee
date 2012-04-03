@@ -1,4 +1,12 @@
 window.hashy = (key, value) ->
+    any = (items, operation) ->
+        result = false
+        for item in items
+            if (operation item) is true
+                result = true
+                break
+        result is true
+
     is_array = (obj) ->
         toString.call(obj) is '[object Array]';
     map = (items, operation) ->
@@ -26,7 +34,7 @@ window.hashy = (key, value) ->
             if old_hash
                 if old_hash_array.length > 1
                     # existing hash with multiple '&' separated k,v pairs
-                    key_is_in_existing_hash = _.any old_hash_array, (x) -> key_hash_test x
+                    key_is_in_existing_hash = any old_hash_array, (item) -> key_hash_test item
 
                     if key_is_in_existing_hash
                         new_hash_array = map old_hash_array, (item) ->
