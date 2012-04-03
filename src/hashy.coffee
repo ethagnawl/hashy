@@ -1,4 +1,10 @@
 window.hashy = (key, value) ->
+    map = (items, operation) ->
+        array = []
+        for item in items
+            array.push operation item
+        array
+
     if arguments.length is 0
         window.location.hash
     else if arguments.length is 1 and !_.isArray arguments[0]
@@ -21,10 +27,10 @@ window.hashy = (key, value) ->
                     key_is_in_existing_hash = _.any old_hash_array, (x) -> key_hash_test x
 
                     if key_is_in_existing_hash
-                        new_hash_array = _.map old_hash_array, (x, i) ->
-                            if key_hash_test x
-                              x = new_hash
-                            x
+                        new_hash_array = map old_hash_array, (item) ->
+                            if key_hash_test item
+                                item = new_hash
+                            item
                         new_hash = new_hash_array.join '&'
                     else
                         # order_item_count is not in existing hash k,v pairs

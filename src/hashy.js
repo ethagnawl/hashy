@@ -1,5 +1,14 @@
 window.hashy = function(key, value) {
-  var key_hash_test, key_is_in_existing_hash, new_hash, new_hash_array, old_hash, old_hash_array, pair, _hash, _i, _len, _results;
+  var key_hash_test, key_is_in_existing_hash, map, new_hash, new_hash_array, old_hash, old_hash_array, pair, _hash, _i, _len, _results;
+  map = function(items, operation) {
+    var array, item, _i, _len;
+    array = [];
+    for (_i = 0, _len = items.length; _i < _len; _i++) {
+      item = items[_i];
+      array.push(operation(item));
+    }
+    return array;
+  };
   if (arguments.length === 0) {
     return window.location.hash;
   } else if (arguments.length === 1 && !_.isArray(arguments[0])) {
@@ -29,11 +38,11 @@ window.hashy = function(key, value) {
             return key_hash_test(x);
           });
           if (key_is_in_existing_hash) {
-            new_hash_array = _.map(old_hash_array, function(x, i) {
-              if (key_hash_test(x)) {
-                x = new_hash;
+            new_hash_array = map(old_hash_array, function(item) {
+              if (key_hash_test(item)) {
+                item = new_hash;
               }
-              return x;
+              return item;
             });
             new_hash = new_hash_array.join('&');
           } else {
