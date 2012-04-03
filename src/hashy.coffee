@@ -1,4 +1,6 @@
 window.hashy = (key, value) ->
+    is_array = (obj) ->
+        toString.call(obj) is '[object Array]';
     map = (items, operation) ->
         array = []
         for item in items
@@ -7,11 +9,11 @@ window.hashy = (key, value) ->
 
     if arguments.length is 0
         window.location.hash
-    else if arguments.length is 1 and !_.isArray arguments[0]
+    else if arguments.length is 1 and !is_array arguments[0]
         new_hash = if arguments[0] is false then '' else arguments[0]
         window.location.hash = new_hash
     else
-        if _.isArray arguments[0]
+        if is_array arguments[0]
             for pair in arguments
                 do (pair) -> hashy pair[0], pair[1]
         else
