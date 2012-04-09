@@ -48,7 +48,7 @@ hashy = do ->
                                 item
                             new_hash = new_hash_array.join '&'
                         else
-                            # order_item_count is not in existing hash k,v pairs
+                            # new_hash is not in existing hash k,v pairs
                             old_hash_array.push new_hash
                             new_hash = old_hash_array.join '&'
                     else if key_hash_test old_hash, key
